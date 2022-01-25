@@ -12,9 +12,9 @@ export default {
   },
   methods: {
     async logout() {
+      this.$router.push('/')
       await this.$supabase.auth.signOut()
       console.log('Successfully logged out');
-      this.$router.push('/')
     },
     toggleMode() {
       const allMode = ['system', 'dark', 'light']
@@ -59,11 +59,11 @@ export default {
             <i class="fas fa-user mr-2"></i>
             Profile
           </NuxtLink>
-          <button class="link" @click="logout">
+          <button class="flex items-center py-2 px-3" @click="logout">
             <i class="fas fa-door-open"></i>
           </button>
         </template>
-        <button class="link" @click="toggleMode">
+        <button class="flex items-center py-2 px-3" @click="toggleMode">
           <i v-if="mode == 'dark'" class="fas fa-moon"></i>
           <i v-else-if="mode == 'light'" class="fas fa-sun"></i>
           <i v-else class="fas fa-desktop"></i>

@@ -15,6 +15,17 @@ export default {
       title: 'Homepage'
     }
   },
+  async fetch() {
+    try {
+      const { data: fruits, error } = await this.$supabase
+        .from('fruits')
+        .select('*')
+      if (error) throw error
+      this.$store.commit('fruitsUpdate', fruits)
+    } catch (error) {
+      this.$store.dispatch('modalSubmit', error.message)
+    }
+  },
   computed: {
     featuredFruits() {
       const fruits = this.$store.state.fruits
@@ -31,26 +42,5 @@ export default {
       }
     },
   },
-  async fetch() {
-    try {
-      const { data: fruits, error } = await this.$supabase
-        .from('fruits')
-        .select('*')
-      if (error) throw error
-      this.$store.commit('fruitsUpdate', fruits)
-    } catch (error) {
-      this.$store.dispatch('modalSubmit', error.message)
-    }
-    try {
-      const { data: profile, error } = await this.$supabase
-        .from('profiles')
-        .select('*')
-        .limit(1)
-      if (error) throw error
-      this.$store.commit('profileUpdate', profile)
-    } catch (error) {
-      this.$store.dispatch('modalSubmit', error.message)
-    }
-  }
 }
 </script>

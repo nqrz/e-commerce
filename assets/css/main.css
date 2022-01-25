@@ -34,6 +34,10 @@
 }
 
 @layer components {
+  .banner {
+    @apply py-20 bg-cyan-400 dark:bg-stone-800
+  }
+
   .input {
     @apply rounded-md dark:bg-stone-700 py-1 px-2
   }

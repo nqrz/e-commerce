@@ -11,7 +11,7 @@ export const mutations = {
     state.session = payload
   },
   profileUpdate(state, payload) {
-    state.profile = payload[0]
+    state.profile = payload
   },
   modalUpdate(state, payload) {
     state.modal = payload
