@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-black dark:text-white
+  }
+
+  h1 {
+    @apply text-[2em] mb-4;
+  }
+  
+  h2 {
+    @apply text-[1.5em] mb-4;
+  }
+  
+  h3 {
+    @apply text-[1.3em] mb-4;
+  }
+  
+  h4 {
+    @apply text-[1em] mb-3;
+  }
+  
+  h5 {
+    @apply text-[0.8em] mb-3;
+  }
+  
+  h6 {
+    @apply text-[0.7em] mb-3;
+  }
+  
+}
+
+@layer components {
+  .input {
+    @apply rounded-md dark:bg-stone-700 py-1 px-2
+  }
+
+  .card {
+    @apply bg-cyan-400 dark:bg-stone-900 rounded-lg shadow-xl;
+  }
+
+  .btn {
+    @apply py-1 px-2 transition-all rounded-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100
+  }
+
+  .btn-primary {
+    @apply bg-cyan-300 hover:bg-cyan-400 dark:bg-stone-600 dark:hover:bg-stone-700 disabled:bg-opacity-0 disabled:dark:bg-opacity-0 
+  }
+
+  .btn-secondary {
+    @apply hover:bg-cyan-300 dark:hover:bg-stone-700
+  }
+}
+
+@layer utilities {
+  .btn:active {
+    transform: scale(0.9);
+  }
+}
