@@ -52,8 +52,7 @@ export default {
                 },
               ])
             if (error) throw error
-            console.log(data);
-            console.log(`Added ${this.fruit.name} with qty: ${this.qty}`);
+            this.$store.dispatch('modalSubmit', `Added ${this.fruit.name} with qty: ${this.qty}`)
           } catch (error) {
             this.$store.dispatch('modalSubmit', error)
           }
@@ -70,8 +69,7 @@ export default {
                 },
               ])
             if (error) throw error
-            console.log(data);
-            console.log(`Added ${this.fruit.name} with qty: ${this.qty}`);
+            this.$store.dispatch('modalSubmit', `Added ${this.fruit.name} with qty: ${this.qty}`)
           } catch (error) {
             this.$store.dispatch('modalSubmit', error)
           }

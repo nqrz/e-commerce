@@ -51,7 +51,7 @@
   }
 
   .btn-primary {
-    @apply bg-cyan-300 hover:bg-cyan-400 dark:bg-stone-600 dark:hover:bg-stone-700 disabled:bg-opacity-0 disabled:dark:bg-opacity-0 
+    @apply bg-cyan-300 hover:bg-cyan-200 dark:bg-stone-600 dark:hover:bg-stone-700 disabled:bg-opacity-0 disabled:dark:bg-opacity-0 
   }
 
   .btn-secondary {
