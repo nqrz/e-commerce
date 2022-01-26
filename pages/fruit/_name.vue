@@ -1,13 +1,13 @@
 <script>
 export default {
-  async asyncData({ $supabase, params }) {
+  async asyncData({ $supabase, store, params }) {
     const { data: fruit, error } = await $supabase
       .from('fruits')
       .select('*')
-      .eq('id', params.id)
+      .eq('name', params.name)
     
     if (error) {
-      this.$store.dispatch('modalSubmit', error)
+      store.dispatch('modalSubmit', error)
     }
 
     return {
@@ -17,7 +17,8 @@ export default {
   data() {
     return {
       qty: 0,
-      total: 0
+      total: 0,
+      session: this.$store.state.session
     }
   },
   watch: {
@@ -99,15 +100,12 @@ export default {
             <input class="input mt-3 mb-1" type="number" name="qty" id="qty" v-model="qty" min="0" :max="fruit.stock" step="5">
             <p class="text-xs text-center">Minimal 5</p>
             <p class="my-3">Total price : $ {{ total }}</p>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" :disabled="!session" :title="[ session ? '' : 'You must login first' ]">
               Add to cart
             </button>
           </form>
         </div>
       </div>
     </div>
-    <pre>
-      {{ fruit }}
-    </pre>
   </div>
 </template>

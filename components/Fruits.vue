@@ -17,7 +17,7 @@ export default {
 <template>
   <div class="container max-w-screen-md p-3">
     <div class="grid grid-cols-3 gap-4">
-      <NuxtLink :to="`/fruit/${fruit.id}`" v-for="fruit in fruits" :key="fruit.name">
+      <NuxtLink :to="`/fruit/${fruit.name}`" v-for="fruit in fruits" :key="fruit.id">
         <div class="card p-3">
           <figure class="h-36 overflow-hidden rounded-md">
             <img :src="fruit.image_url" :alt="`${fruit.name} photo`">

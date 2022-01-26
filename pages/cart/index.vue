@@ -20,10 +20,13 @@ export default {
     cart() {
       return this.$store.state.cart
     },
-    totalCart() {
-      return this.$store.state.totalCart
-    },
   },
+  middleware({ store, redirect }) {
+    // If the user is not logged in
+    if (!store.state.session) {
+      return redirect('profile/login')
+    }
+  }
 }
 </script>
 
@@ -49,6 +52,9 @@ export default {
               {{ item.fruits.name }}
             </h3>
             <p>
+              {{ item.description }}
+            </p>
+            <p>
               Price $ {{ item.fruits.price }}
             </p>
             <p>
@@ -61,14 +67,8 @@ export default {
         </div>
       </div>
       <div>
-        <!-- Todo : how to count the total price of all fruit -->
-        <div class="sticky top-6 card m-3 ml-0 p-3">
-          {{  }}
-        </div>
+        <CartSummary :cart="cart" />
       </div>
     </div>
-    <pre>
-      {{ cart }}
-    </pre>
   </div>
 </template>

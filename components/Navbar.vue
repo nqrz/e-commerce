@@ -27,7 +27,7 @@ export default {
     }
   },
   computed: {
-    user() {
+    session() {
       return this.$store.state.session
     }
   }
@@ -46,15 +46,15 @@ export default {
           <i class="fas fa-home mr-2"></i>
           Home
         </NuxtLink>
-        <NuxtLink class="link" to="/cart">
-          <i class="fas fa-shopping-cart mr-2"></i>
-          Cart
-        </NuxtLink>
-        <NuxtLink v-if="!user" class="link" to="/profile/login">
+        <NuxtLink v-if="!session" class="link" to="/profile/login">
           <i class="fas fa-user mr-2"></i>
           Login
         </NuxtLink>
         <template v-else>
+          <NuxtLink class="link" to="/cart">
+            <i class="fas fa-shopping-cart mr-2"></i>
+            Cart
+          </NuxtLink>
           <NuxtLink class="link" to="/profile">
             <i class="fas fa-user mr-2"></i>
             Profile
